@@ -120,7 +120,7 @@ $date_format = get_option('date_format');
 
         $today = date('Y-m-d', $time);
         $day_id = date('Ymd', $time);
-        $selected_day = (str_replace('-', '', $this->active_day) == $day_id) ? ' mec-selected-day' : '';
+        $selected_day = (str_replace('-', '', $this->active_day) == $day_id) ? ' mec-selected-day none-event' : '';
 
         // Print events 
         if (isset($events[$today]) and count($events[$today])) {
@@ -207,7 +207,12 @@ $date_format = get_option('date_format');
 
             $events_str .= '</div>';
         } else {
-            echo '<dt class="mec-calendar-day' . $selected_day . '" data-mec-cell="' . $day_id . '" data-day="' . $list_day . '" data-month-b="' . date('Ym', $time) . '">' . $list_day . '</dt>';
+            echo '<dt class="mec-calendar-day no-event' . $selected_day . '" data-mec-cell="' . $day_id . '" data-day="' . $list_day . '" data-month-b="' . date('Ym', $time) . '"> <span>' . $list_day .'</span>'; 
+            $default_image_url = 'https://barracuda-r2.tumwebsme.com/cms/noevent.webp'; // เปลี่ยนเป็น URL ของรูปสำรอง
+            // echo '<div class="mec-event-thumbnail"><img src="' . esc_url($default_image_url) . '" alt="Default Event Image"></div>';
+            echo '<div class="mec-month-event"> <a class="mec-event-thumbnail"> <img src="' . esc_url($default_image_url) . '" alt="Default Event Image"></a></div>';
+
+            echo '</dt>';
 
             if (!$this->display_all) {
                 $events_str .= '<div class="mec-calendar-events-sec" id="mec-calendar-events-sec-' . $this->id . '-' . $day_id . '" data-mec-cell="' . $day_id . '" ' . ((trim($selected_day) != '' or $this->display_all) ? ' style="display: block;"' : '') . '>' . $this->day_label($time);
@@ -217,6 +222,8 @@ $date_format = get_option('date_format');
                 $events_str .= '</div>';
             }
         }
+
+
 
         echo '</dt>';
 
