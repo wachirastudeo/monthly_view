@@ -208,7 +208,7 @@ $date_format = get_option('date_format');
             $events_str .= '</div>';
         } else {
             echo '<dt class="mec-calendar-day no-event' . $selected_day . '" data-mec-cell="' . $day_id . '" data-day="' . $list_day . '" data-month-b="' . date('Ym', $time) . '"> <span>' . $list_day .'</span>'; 
-            $default_image_url = 'https://barracuda-r2.tumwebsme.com/cms/noevent.webp'; // เปลี่ยนเป็น URL ของรูปสำรอง
+            $default_image_url = 'https://barracuda-r2.tumwebsme.com/cms/closed.webp; // เปลี่ยนเป็น URL ของรูปสำรอง
             // echo '<div class="mec-event-thumbnail"><img src="' . esc_url($default_image_url) . '" alt="Default Event Image"></div>';
             echo '<div class="mec-month-event"> <a class="mec-event-thumbnail"> <img src="' . esc_url($default_image_url) . '" alt="Default Event Image"></a></div>';
 
