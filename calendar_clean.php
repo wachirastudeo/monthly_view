@@ -141,8 +141,7 @@ $date_format = get_option('date_format');
                       data-event-id="' . $event_id . '" 
                       data-title="' . esc_attr($event_title) . '" 
                       data-date="' . esc_attr($event_date) . '" 
-                      data-description="' . esc_attr($event_excerpt) . '"
-                      onmouseenter="openPopup(this)">';
+                      data-description="' . esc_attr($event_excerpt) . '">';
                 echo '<a href="javascript:void(0);" class="mec-event-thumbnail">' . $event_thumbnail . '</a>';
                 echo '</div>';
             }
@@ -151,7 +150,7 @@ $date_format = get_option('date_format');
             echo '<div id="mec-event-popup" class="mec-popup">';
             echo '<span class="mec-popup-close" onclick="closePopup()">&times;</span>'; // ปุ่มปิดขวาบน
             echo '<div id="mec-popup-content"></div>';
-            echo '<button id="mec-book-now">Book Now</button>';
+            echo '<div   class="mec-book-now sr-sm sr-dark sr-#006560">Book Now</div>';
             echo '</div>';
 
             echo '</dt>';
@@ -322,9 +321,9 @@ $date_format = get_option('date_format');
     ?>
 </dl>
 <?php if ($this->style == 'classic'): ?>
-<div class="mec-calendar-events-side mec-clear">
-    <?php echo $events_str; ?>
-</div>
+    <div class="mec-calendar-events-side mec-clear">
+        <?php echo $events_str; ?>
+    </div>
 <?php else:
     $this->events_str = $events_str;
 endif;
